@@ -1,5 +1,5 @@
 <template>
-
+    <div class="yeniMetin">metin</div>
 </template>
 
 <script>
