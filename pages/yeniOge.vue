@@ -3,11 +3,9 @@
 </template>
 
 <script>
+    import "assets/css/main.css"
 </script>
 
 <style>
-.yeniMetin{
-    padding-top: 10%;
-    font-size: x-small;
-}
+
 </style>
