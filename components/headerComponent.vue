@@ -1,18 +1,26 @@
 <template>
     <div>
-       <header>
-           <nav>
-               <ul>
-                   <li><NuxtLink to="/">Anasayfa</NuxtLink></li>
-                   <li><NuxtLink to="/header">Header</NuxtLink></li>
-                   <li><NuxtLink to="/ilkSlider">Slider</NuxtLink></li>
-                   <li><NuxtLink to="/yeniOge">YeniOge</NuxtLink></li>
-               </ul>
-           </nav>
-       </header>
+      <header>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              <NuxtLink to="/">
+                <img
+                  class="headerLogo"
+                  src="public\icons\logo.png"
+                  alt="Enaktif Logo"
+                />
+              </NuxtLink>
+            </div>
+            <div class="col">Column</div>
+            <div class="col">Column</div>
+          </div>
+        </div>
+      </header>
     </div>
-</template>
-   
-<script></script>
-   
-<style></style>
+  </template>
+  
+  <script></script>
+  
+  <style></style>
+  

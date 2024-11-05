@@ -1,7 +1,5 @@
-body{
-    background: blueviolet;
-}
-
-.yeniMetin{
-    color: aquamarine;
+.headerLogo{
+    text-decoration: none;
+    height: 90px;
+    width: 202px;
 }
