@@ -1,10 +1,10 @@
 <template>
     <div>
       <header>
-        <div style="background-color: rgb(255,0,0); text-align: center;">
+        <div style="background-color: rgb(255,0,0); text-align: center; z-index: 9999; position: fixed; width: 100%;" >
           <span style="font-size: 12pt; font-weight: bold; color: rgb(255, 255, 255); text-align: ">300 TL ÜZERİ KARGO BEDAVA + 4 TAKSİT</span>
         </div>
-        <div style="padding: 16px;">
+        <div style="padding: 25px;">
           
         </div>
         <div class="header-middle">

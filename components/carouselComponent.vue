@@ -57,8 +57,8 @@
     max-width: 100%;
     height: 100%;
     margin: auto;
-    border: 2px solid #ddd;
-    border-radius: 10px;
+    
+    
     background-color: #f9f9f9;
   }
   
