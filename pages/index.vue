@@ -5,11 +5,12 @@
     <KayanUrunComponent></KayanUrunComponent>
     <ListtabComponent></ListtabComponent>
     <AltbannerComponent></AltbannerComponent>
-    
 </template>
 
 
 <script>
+
+
 
 
 

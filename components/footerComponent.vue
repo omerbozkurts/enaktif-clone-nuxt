@@ -1,8 +1,14 @@
 <template>
-    <p>footer ogeleri</p>
-    <myButton></myButton>
+    <footer id="footer">
+        <div class="footer-row-1">
+            <FooterustComponent></FooterustComponent>
+        </div>
+    </footer>
 </template>
 
-<script></script>
 
-<style></style>
+<style>
+#footer{
+    margin-top: 50px;
+}
+</style>

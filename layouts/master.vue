@@ -1,9 +1,10 @@
 <template>
-    <div>master layout</div>
-    <div>buraya da footer layout getirdin</div>
+    <FooterComponent></FooterComponent>
     <slot></slot>
 </template>
 
-<script></script>
+<script>
+
+</script>
 
 <style></style>
