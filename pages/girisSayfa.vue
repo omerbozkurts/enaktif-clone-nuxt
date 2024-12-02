@@ -1,0 +1,3 @@
+<template>
+    <UyeGirisi></UyeGirisi>
+</template>
