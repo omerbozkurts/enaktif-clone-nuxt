@@ -3,11 +3,13 @@
     <CarouselComponent></CarouselComponent>
     <UstbannerComponent></UstbannerComponent>
     <KayanUrunComponent></KayanUrunComponent>
+    <ListtabComponent></ListtabComponent>
     
 </template>
 
 
 <script>
+
 
 
 
