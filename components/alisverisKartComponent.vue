@@ -30,6 +30,7 @@
     background-color: #FFF;
     border: 1px solid #E5E5E5;
     transition: all 0.2s linear;
+    margin-right: 30px;
 }
 
 .alisveris-karti-container:hover{
