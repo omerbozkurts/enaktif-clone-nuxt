@@ -6,6 +6,9 @@
         <div class="footer-row-2">
             <FooterortaComponent></FooterortaComponent>
         </div>
+        <div class="footer-row-3">
+            <FooteraltComponent></FooteraltComponent>
+        </div>
     </footer>
 </template>
 
