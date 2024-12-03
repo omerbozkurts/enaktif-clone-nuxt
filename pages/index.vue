@@ -1,25 +1,3 @@
 <template>
-    <ustmenuComponent></ustmenuComponent>
-    <CarouselComponent></CarouselComponent>
-    <UstbannerComponent></UstbannerComponent>
-    <KayanUrunComponent></KayanUrunComponent>
-    <ListtabComponent></ListtabComponent>
-    <AltbannerComponent></AltbannerComponent>
+    <AnaDropDown></AnaDropDown>
 </template>
-
-
-<script>
-
-
-
-
-
-
-
-
-
-
-</script>
-
-<style>
-</style>

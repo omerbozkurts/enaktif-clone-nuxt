@@ -30,10 +30,6 @@
     
   </template>
   
-  <script>
-import HeaderMiddleRight from './headerMiddleRight.vue';
-
-</script>
   
 <style>
 .header-middle {
@@ -82,4 +78,4 @@ import HeaderMiddleRight from './headerMiddleRight.vue';
 }
 
 </style>
-  
+

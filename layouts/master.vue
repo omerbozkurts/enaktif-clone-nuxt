@@ -1,5 +1,5 @@
 <template>
-    <FooterComponent></FooterComponent>
+    
     <slot></slot>
 </template>
 
