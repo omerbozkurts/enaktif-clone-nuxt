@@ -20,6 +20,14 @@
         <li><input type="checkbox" /> Akademi Denizi Yayınları (2)</li>
       </ul>
     </div>
+    <div class="brands">
+      <h3>Ders</h3>
+      <ul>
+        <li><input type="checkbox" />Biyoloji(90)</li>
+        <li><input type="checkbox" />Coğrafya(61)</li>
+        <li><input type="checkbox" />Dil Bilgisi(8)</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -28,28 +36,26 @@
 
 <style scoped>
 .filter-menu {
-  position: fixed;
   top: 0;
   left: 0;
-  width: 260px;
-  height: 100vh;
+  width: 348px;
+  height: auto;
   background-color: #ffffff;
   border-right: 1px solid #e0e0e0;
   padding: 16px 20px;
   overflow-y: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
 }
 
 .filter-menu h2 {
-  font-size: 1.4rem;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 16px;
   color: #333;
 }
 
 .filter-menu h3 {
-  font-size: 1.2rem;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 12px;
   color: #444;
@@ -62,25 +68,32 @@
 }
 
 .filter-menu li {
-  font-size: 1rem;
-  margin: 8px 0;
-  color: #555;
+  font-weight: 400;
+    font-size: var(--font-size-16);
+    line-height: calc(var(--font-size-16) + 8px);
+    color: #000;
+    padding: 0;
+    padding-bottom: var(--spacer-4);
+    transition: all 0.2s linear;
 }
 
 .filter-menu li:hover {
-  color: #007bff;
+  color: #ff6000;
   cursor: pointer;
 }
 
 .back-button {
   background: none;
   border: none;
-  color: #007bff;
+  color: #000000;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 16px;
   margin-top: 12px;
   padding: 0;
-  text-decoration: underline;
+}
+
+.back-button:hover{
+  color: #ff6000;
 }
 
 hr {
