@@ -25,7 +25,7 @@
   
   const currentSlide = ref(0);
   const slideCount = computed(() => images.length);
-  const interval = 5000; // 3 saniye aralık
+  const interval = 5000; 
   
   function nextSlide() {
     currentSlide.value = (currentSlide.value + 1) % slideCount.value;

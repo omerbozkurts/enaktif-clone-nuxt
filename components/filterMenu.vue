@@ -16,7 +16,7 @@
       <h3>Tüm Markalar</h3>
       <ul>
         <li><input type="checkbox" /> 3D Yayınları (40)</li>
-        <li><input type="checkbox" /> Acil Yayınları (3)</li>
+        <li><input type="checkbox"  /> Acil Yayınları (3)</li>
         <li><input type="checkbox" /> Akademi Denizi Yayınları (2)</li>
       </ul>
     </div>
