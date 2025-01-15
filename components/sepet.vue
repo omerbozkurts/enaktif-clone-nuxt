@@ -2,19 +2,32 @@
     <div class="sepet-container">
       <h1 class="text-2xl font-bold mb-4">Sepetiniz</h1>
       <div v-if="cartItems.length > 0">
-        <ul>
-          <li v-for="item in cartItems" :key="item.id" class="sepet-item">
-            <div class="sepet-urun">
-              <img :src=item.resim>
-              <span class="urun-baslik">{{ item.title }}</span>
-              <span class="urun-fiyat">{{ (item.price/100).toFixed(2) }} TL</span>
-              <span class="urun-adet">Adet: {{ item.quantity }}</span>
-              <button @click="removeItem(item.id)" class="urun-sil">Sil</button>
+        <div class="row">
+            <ul class="col-8">
+            <li v-for="item in cartItems" :key="item.id" class="sepet-item">
+                
+                <div class="row" style="font-size: 15px;font-style: inherit;font-family: inherit; align-items: center;">
+                    <div class="col-2" style="max-width: 100px; min-width: 100px;"><img :src=item.resim></div>
+                    <div class="col-4"><div class="urun-baslik">{{ item.title }}</div></div>
+                    <div class="col-2"><div class="urun-fiyat">{{ (item.price/100).toFixed(2) }} TL</div></div>
+                    <div class="col-2"><div class="urun-adet">Adet: {{ item.quantity }}</div></div>
+                    <div class="col-2"><button @click="removeItem(item.id)" class="urun-sil">Sil</button></div>
+                </div> 
+                <!-- <div class="sepet-urun">
+                <img :src=item.resim>
+                <div class="urun-baslik">{{ item.title }}</div>
+                <div class="urun-fiyat">{{ (item.price/100).toFixed(2) }} TL</div>
+                <div class="urun-adet">Adet: {{ item.quantity }}</div>
+                <button @click="removeItem(item.id)" class="urun-sil">Sil</button>
+                </div> -->
+
+            </li>
+            </ul>
+            <div class="col-4">
+                <div class="sepet-toplam">
+                    <strong>Toplam Fiyat: {{ totalPrice }} TL</strong>
+                </div>
             </div>
-          </li>
-        </ul>
-        <div class="sepet-toplam">
-          <strong>Toplam Fiyat: {{ totalPrice }} TL</strong>
         </div>
       </div>
       <div v-else>
@@ -44,16 +57,17 @@
   }
   
   .sepet-item {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
   }
   
-  .sepet-urun{
-    max-width: 100px;
+
+  .urun-baslik, .urun-fiyat, .urun-adet {
+  
+  white-space: nowrap; /* Yazının tek satırda olmasını sağla */
+  text-overflow: ellipsis; /* Taşan yazıyı "..." ile göster */
   }
 
   .urun-sil {
@@ -61,11 +75,16 @@
     background: none;
     border: none;
     cursor: pointer;
+    margin-left: auto;
   }
   
   .sepet-toplam {
     margin-top: 20px;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
   }
   </style>
   
