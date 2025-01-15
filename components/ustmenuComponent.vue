@@ -121,24 +121,27 @@
 .ust-menu-container {
     justify-content: center;
     display: flex;
-
+   
 }
 
 .ust-menu-container > ul {
     display: flex;
     flex-wrap: wrap;
     font-size: 16px;
+    
 }
 
 .ust-menu-container > ul > li {
     margin-left: 10px;
     margin-right: 10px;
     position: relative;
+    
 }
 
 .dropdown {
     position: absolute;
     display: inline-block;
+    
 }
 
 .dropdown-yazi {
@@ -149,9 +152,8 @@
     color: #fd7e14;
 }
 
-.dropdown-menu {
-    z-index: 101;
-    display: none; 
+/* z-index: 101;
+    
     background-color: #fff;
     border: 1px solid #E5E5E5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -166,14 +168,28 @@
     display: flex;
     justify-content: center;
     gap: 15px;
-    overflow-x: auto;
+    overflow-x: auto; */
+
+.dropdown-menu {
+    position: absolute; /* Menüyü dropdown-yazi'ya göre konumlandırır */
+    top: 100%; /* Açılır menü bağlantının altına yerleşir */
+    width: 100vw; /* Ekranın tamamını yatay olarak kaplar */
+    background-color: #ffffff; /* Arka plan rengi */
+    border: 1px solid #E5E5E5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0; /* İç kenar boşlukları */
+    z-index: 101; /* Menü içeriği önde görüntülenir */
+    display: none; /* Varsayılan olarak gizli */
+    justify-content: center; /* İçerik ekranın ortasında hizalanır */
+    flex-wrap: wrap; /* İçerik satırlara taşabilir */
+  
 }
 
 .dropdown:hover .dropdown-menu {
     display: flex; 
     padding-top: 30px;
     padding-bottom: 100px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     transform: translateX(-600px);
     
 }

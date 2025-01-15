@@ -6,10 +6,17 @@
   <link rel="preload" as="style" href="//ideacdn.net/idea/js/75/themes/selftpl_672f4c15b137f/renders/css/theme.css?revision=7.2.8.7-1-1732361077">
   <link rel='stylesheet' type='text/css' href='//ideacdn.net/idea/js/75/themes/selftpl_672f4c15b137f/renders/css/theme.css?revision=7.2.8.7-1-1732361077'/>
 
+  <NuxtLayout name="master"></NuxtLayout>
   <NuxtLayout>
     <NuxtPage/>
   </NuxtLayout>
-  <NuxtLayout name="master"/>
+
+  
 </template>
 
-<script></script>
+<script>
+
+
+
+
+</script>

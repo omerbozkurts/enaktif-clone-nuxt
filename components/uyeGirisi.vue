@@ -29,6 +29,7 @@
                     </div>
                 </form>
             </div>
+            <NuxtLink to="kayitol"><KayitOlButon></KayitOlButon></NuxtLink>
         </div>
     </div>
 </template>

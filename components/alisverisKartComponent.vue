@@ -1,9 +1,10 @@
 <template>
     <div class="alisveris-karti-container"> 
-        <div class="alisveris-karti-resim-container">
-            <div class="alisveris-karti-indirim-container">
-                <div class="aliveris-karti-indirim-orani">%{{ indirimOrani }}</div>
+        <div class="alisveris-karti-indirim-container">
+                <div class="aliveris-karti-indirim-orani">{{ indirimOrani }}</div>
             </div>
+        <div class="alisveris-karti-resim-container">
+            
             <img :src=resim>
         </div>
         <div class="alisveris-karti-icerik-container">
@@ -15,7 +16,7 @@
                 <div class="icerik-yeni-fiyat">{{ indirimliFiyat }} TL</div>
             </div>
             <div class="icerik-buton">
-                <button class="sepete-ekle-buton">SEPETE EKLE</button>
+                <button class="sepete-ekle-buton" @click="sepeteEkle">SEPETE EKLE</button>
             </div>
         </div>
     </div>
@@ -41,9 +42,21 @@
     width: 346px;
     height: 346px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.alisveris-karti-resim-container>img{
+    max-width:min-content;
+    max-height: 346px;
+   
+    
+    
 }
 
 .alisveris-karti-indirim-container{
+    z-index: 999;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -154,10 +167,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useCartStore } from '~/stores/sepet';
 
 export default defineComponent({
   name: 'alisverisKartComponent',
   props: {
+    urunId: {
+      type: String,
+      required: true, // Firebase'den gelen koleksiyon id'si
+    },
     resim: {
       type: String,
       required: true,
@@ -178,6 +196,25 @@ export default defineComponent({
         type: String,
         required: true,
     }
+  },
+  setup(props) {
+    const cartStore = useCartStore();
+
+    const sepeteEkle = () => {
+
+    const fiyat = props.indirimliFiyat
+    ? parseFloat(props.indirimliFiyat.replace(',', '.')) // İndirimli fiyat varsa dönüştür
+    : parseFloat(props.ilkFiyat.replace(',', '.')); // Yoksa normal fiyatı kullan
+
+      cartStore.addToCart({
+        id: props.urunId,
+        resim: props.resim,
+        title: props.urunIsmi,
+        price: Math.round(fiyat * 100), // Kuruşa çevir
+      });
+    };
+
+    return { sepeteEkle };
   },
 });
 </script>

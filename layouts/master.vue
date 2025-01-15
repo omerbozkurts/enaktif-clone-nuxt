@@ -1,9 +1,20 @@
 <template>
+    <HeaderComponent></HeaderComponent>
+    <NuxtPage></NuxtPage>
+    <FooterComponent></FooterComponent>
     
-    <slot></slot>
 </template>
 
 <script>
+
+
+
+
+
+
+
+
+
 
 </script>
 

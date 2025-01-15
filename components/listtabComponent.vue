@@ -13,33 +13,38 @@
           </div>   
           <div class="sekme-icerik">
             <div v-if="currentTab === 0" class="sekme-urun">
-              <AlisverisKartComponent resim="/urunler/scrikss-proxi-1-2-mm-yesil-tukenmez-kalem-22_min.webp" 
-                    urun-ismi="Scrikss Proxi 1.2 mm Yeşil Tükenmez Kalem" ilk-fiyat="45.00" indirim-orani="30" indirimli-fiyat="31.50"
-                ></AlisverisKartComponent>
-                <AlisverisKartComponent resim="/urunler/writech-w-0171-pembe-mavi-govde-0-7-mm-mavi-jel-kalem-11_min.webp" 
-                    urun-ismi="Writech W-0171 Mor Mavi Gövde 0.7 mm Mavi Jel Kalem" ilk-fiyat="64.00" indirim-orani="15" indirimli-fiyat="54.40"
-                ></AlisverisKartComponent>
-                <AlisverisKartComponent resim="/urunler/pelikan-490-pastel-pembe-fosforlu-kalem-111_min.webp" 
-                    urun-ismi="Pelikan 490 Pastel Pembe Fosforlu Kalem" ilk-fiyat="50.00" indirim-orani="25" indirimli-fiyat="37.50"
-                ></AlisverisKartComponent>
-                <AlisverisKartComponent resim="/urunler/pin-12-mmx33-m-ofis-bandi-11_min.webp" 
-                    urun-ismi="Pin 12 mm*33 m Ofis Bandı" ilk-fiyat="14.00" indirim-orani="35" indirimli-fiyat="9.10"
-                ></AlisverisKartComponent>
-                <AlisverisKartComponent resim="/urunler/vinson-fashion-a26-papatya-0-7-mm-mavi-jel-kalem-11_min.webp" 
-                    urun-ismi="Vinson Fashion A26 Papatya 0.7 mm Mavi Jel Kalem" ilk-fiyat="52.00" indirim-orani="25" indirimli-fiyat="39.00"
-                ></AlisverisKartComponent>
-                <AlisverisKartComponent resim="/urunler/rubenis-okul-etiket-1_min.webp" 
-                    urun-ismi="Rubenis 3'lü Kırmızı Okul Etiketi" ilk-fiyat="25.00" indirim-orani="40" indirimli-fiyat="15.00"
-                ></AlisverisKartComponent>
-                <AlisverisKartComponent resim="/urunler/pelikan-490-pastel-mor-fosforlu-kalem-11_min.webp" 
-                    urun-ismi="Pelikan 490 Pastel Mor Fosforlu Kalem" ilk-fiyat="50.00" indirim-orani="25" indirimli-fiyat="37.50"
-                ></AlisverisKartComponent>
-                <AlisverisKartComponent resim="/urunler/kr-akademi-tyt-vip-fizik-soru-bankasi_min.webp" 
-                    urun-ismi="KR Akademi TYT Vip Fizik Soru Bankası" ilk-fiyat="249.00" indirim-orani="20" indirimli-fiyat="199.20"
-                ></AlisverisKartComponent>
+              <AlisverisKartComponent
+                    v-for="urun in urunler.filter((urun) => urun.kitapId>8 && urun.kitapId<17)"
+                    :urunId="urun.kitapId"
+                    :resim="urun.kitapResim"
+                    :urun-ismi="urun.kitapIsim"
+                    :ilk-fiyat="urun.normalFiyat"
+                    :indirim-orani="urun.indirimMiktari"
+                    :indirimli-fiyat="urun.indirimliFiyat"
+                    />
             </div>
-            <div v-if="currentTab === 1" class="sekme-urun"></div>
-            <div v-if="currentTab === 2" class="sekme-urun"></div>
+            <div v-if="currentTab === 1" class="sekme-urun">
+              <AlisverisKartComponent
+                    v-for="urun in urunler.filter((urun) => urun.kitapId>16 && urun.kitapId<25)"
+                    :urunId="urun.kitapId"
+                    :resim="urun.kitapResim"
+                    :urun-ismi="urun.kitapIsim"
+                    :ilk-fiyat="urun.normalFiyat"
+                    :indirim-orani="urun.indirimMiktari"
+                    :indirimli-fiyat="urun.indirimliFiyat"
+                    /> 
+            </div>
+            <div v-if="currentTab === 2" class="sekme-urun">
+              <AlisverisKartComponent
+                    v-for="urun in urunler.filter((urun) => urun.kitapId>24 && urun.kitapId<33)"
+                    :urunId="urun.kitapId"
+                    :resim="urun.kitapResim"
+                    :urun-ismi="urun.kitapIsim"
+                    :ilk-fiyat="urun.normalFiyat"
+                    :indirim-orani="urun.indirimMiktari"
+                    :indirimli-fiyat="urun.indirimliFiyat"
+                    />
+            </div>
           </div>
       </div>
   </div>
@@ -115,7 +120,12 @@
 </style>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref,onMounted } from 'vue';
+import { useNuxtApp } from "#app";
+import { collection, getDocs, Firestore } from "firebase/firestore";
+
+const status = ref<string | null>(null);
+const urunler = ref<any[]>([]);
 
 const tabs = [
 { name: "ÖNE ÇIKAN MARKA" },
@@ -128,4 +138,27 @@ const currentTab = ref<number>(0);
 const switchTab = (index: number) => {
 currentTab.value = index;
 };
+
+
+onMounted(async () => {
+    const nuxtApp = useNuxtApp();
+    const db = nuxtApp.$firestore as Firestore;
+  
+    try {
+      const colRef = collection(db, "urunlerVeri"); // Firebase koleksiyon adı
+      const querySnapshot = await getDocs(colRef);
+  
+      // Verileri formatlıyoruz
+      urunler.value = querySnapshot.docs.map((doc) => ({
+        id: doc.id, // Firebase tarafından atanmış benzersiz ID
+        ...doc.data(),
+      }));
+  
+      status.value = "Veri Başarıyla Çekildi";
+    } catch (error) {
+      console.error("Veri Çekilirken Hata Oluştu:", error);
+      status.value = "Veri çekilirken hata oluştu. Daha fazla bilgi için console'u kontrol edin.";
+    }
+  });
+
 </script>

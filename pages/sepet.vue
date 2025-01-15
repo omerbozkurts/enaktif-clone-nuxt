@@ -1,0 +1,3 @@
+<template>
+    <Sepet></Sepet>
+</template>
