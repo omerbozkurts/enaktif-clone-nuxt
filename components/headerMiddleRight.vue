@@ -46,7 +46,7 @@
         </defs>
       </svg>
       <div class="cart-total-price" data-selector="cart-total-price">{{ totalPrice || 0 }} TL</div>
-      <div class="cart-amount" data-selector="cart-item-count">{{ cartItems?.length || 0 }}</div>
+      <div class="cart-amount" data-selector="cart-item-count">{{ totalItemCount || 0 }}</div>
     
   </div>
     </NuxtLink>
@@ -125,6 +125,8 @@ import { useCartStore } from '@/stores/sepet';
 const cartStore = useCartStore();
 
 // Reaktif bağlamalar
-const cartItems = computed(() => cartStore.items); // Store'daki ürünler
+const totalItemCount = computed(() => {
+  return cartStore.items.reduce((total, item) => total + (item.quantity || 1), 0);
+});
 const totalPrice = computed(() => cartStore.totalPrice); // Toplam fiyat
 </script>

@@ -1,6 +1,7 @@
 import { defineNuxtPlugin } from "#app";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const firebaseConfig = {
@@ -15,8 +16,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const app = initializeApp(firebaseConfig);
   const firestore = getFirestore(app);
+  const auth = getAuth(app);
 
   // Firestore'u global olarak ekliyoruz
   nuxtApp.provide("firestore", firestore);
+  nuxtApp.provide("firestoreAuth", auth);
 });
 
