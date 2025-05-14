@@ -14,7 +14,7 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "firebase": "^11.0.2",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.16.0",
     "vue": "latest",
     "vue-router": "latest"
   }
